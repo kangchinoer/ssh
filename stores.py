@@ -7,14 +7,12 @@ from requests import *
 from bs4 import BeautifulSoup as par
 
 os.system('clear')
-link = 'https://sshstores.net/'
+link = 'http://myssh.info/'
 a = get(link).content
 b = par(a,"html.parser")
 no = 0
 print("""
-\x1b[1;92m     ╔═╗╦═╗╔═╗╔═╗╔╦╗╔═╗  ╔═╗╔═╗╦ ╦
-     ║  ╠╦╝║╣ ╠═╣ ║ ║╣   ╚═╗╚═╗╠═╣
-     ╚═╝╩╚═╚═╝╩ ╩ ╩ ╚═╝  ╚═╝╚═╝╩ ╩
+\x1b[1;92m
 \x1b[1;91m----------------------------------------""")
 for cen in b.find_all('h2'):
 	no += 1
@@ -57,7 +55,7 @@ data = {
 	"code":f.get("value")
 	}
 print("\x1b[1;91m-"*40)
-requ = post("https://sshstores.net/server/new/create/index.php", headers={"user-agent":"Mozilla/5.0 (Linux; Android 9; vivo 1904 Build/PPR1.180610.011; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/74.0.3729.136 Mobile Safari/537.36"}, data=data).text
+requ = post("http://myssh.info/server/new/create/index.php", headers={"user-agent":"Mozilla/5.0 (Linux; Android 9; vivo 1904 Build/PPR1.180610.011; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/74.0.3729.136 Mobile Safari/537.36"}, data=data).text
 bs = par(requ,"html.parser")
 if "SSH Account Successfull Created!" in requ:
 	for h3 in bs.find_all('h3'):
