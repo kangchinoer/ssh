@@ -7,7 +7,7 @@ from requests import *
 from bs4 import BeautifulSoup as par
 
 os.system('clear')
-link = 'https://createssh.com/'
+link = 'https://sshstores.net/'
 a = get(link).content
 b = par(a,"html.parser")
 no = 0
